@@ -1,23 +1,13 @@
-import React from "react";
-
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { NavLink } from "react-router";
-import { ChevronLeft, Search } from "lucide-react";
-import logo from "@/assets/logo.svg";
+import { ChevronLeft } from "lucide-react";
+import NavBar from "../components/NavBar";
 
-type Props = {};
-
-const AdicionarLivro = (props: Props) => {
+const AdicionarLivro = () => {
   return (
     <>
-      <header className="bg-black grid gap-6 px-6 py-4 mb-6">
-        <nav className="flex justify-between items-center">
-          <div className="w-58">
-            <img src={logo} alt="" />
-          </div>
-        </nav>
-      </header>
+      <NavBar />
       <main className="px-6">
         <section className="grid">
           <div className="">
