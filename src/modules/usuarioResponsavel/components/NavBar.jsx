@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import CarrinhoCompras from "@/modules/usuarioResponsavel/components/NavBar";
+import CarrinhoCompras from "@/modules/usuarioResponsavel/components/CarrinhoCompras";
 import logo from "@/assets/logo.svg";
 
 const NavBar = () => {
