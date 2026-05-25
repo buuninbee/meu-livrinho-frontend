@@ -1,9 +1,49 @@
 import CarrinhoCompras from "@/modules/usuarioResponsavel/components/CarrinhoCompras";
 import logo from "@/assets/logo.svg";
 import { Search } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, useParams } from "react-router";
+import { LivroModel } from "../models/LivroModel";
+import { useEffect, useState } from "react";
 
 const LivroPagina = () => {
+  const { id } = useParams();
+
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const buscarLivro = async () => {
+      try {
+        const { data } = await LivroModel(id);
+        setData(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    buscarLivro();
+  }, [id]);
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
+
+  // ✅ Mostrar erro
+  if (error) {
+    return <p>Erro ao carregar livro</p>;
+  }
+
+  // ✅ Mostrar se não encontrou
+  if (!data) {
+    return <p>Livro não encontrado</p>;
+  }
+
+  const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${data.cover_path}`;
+  const pdfLivro = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${data.pdf_path}`;
+
   return (
     <>
       <header className="bg-black grid gap-6 px-6 py-4 mb-6">
@@ -30,20 +70,15 @@ const LivroPagina = () => {
       <main className="grid px-6">
         <section className="mb-6">
           <div className="flex gap-3 items-center justify-between mb-4">
-            <img
-              className="max-w-80 max-h-80"
-              src="https://static-meclivros.mec.gov.br/covers-webp/9786525408712.jpg?w=800"
-              alt=""
-              srcset=""
-            />
+            <img className="max-w-80 max-h-80" src={capaImg} alt="" srcset="" />
             <ul className="grid gap-6">
               <li className="grid gap-1 px-6 py-4 border border-gray-800 rounded-2xl text-center">
                 <span className="text-xl font-medium text-gray-600">Ano</span>
-                <p className="text-sm">2010</p>
+                <p className="text-sm">{data?.publish_year}</p>
               </li>
               <li className="grid gap-1 px-6 py-4 border border-gray-500 rounded-2xl text-center">
-                <span className="text-xl font-medium text-gray-600">Paginas</span>
-                <p className="text-sm">200</p>
+                <span className="text-xl font-medium text-gray-600">Avaliação</span>
+                <p className="text-sm">{data?.total_reviews}</p>
               </li>
               <li className="grid gap-1 px-6 py-4 border border-gray-500 rounded-2xl text-center">
                 <span className="text-xl font-medium text-gray-600">Genero</span>
@@ -52,8 +87,8 @@ const LivroPagina = () => {
             </ul>
           </div>
           <div className="grid gap-1">
-            <h2 className="text-2xl font-medium">Livro tesre</h2>
-            <p className="text-sm">Autor</p>
+            <h2 className="text-2xl font-medium">{data?.title}</h2>
+            <p className="text-sm">Autor: {data?.publisher}</p>
           </div>
         </section>
 
@@ -61,13 +96,13 @@ const LivroPagina = () => {
           <div className="grid gap-4">
             <div className="grid gap-1.5">
               <h3 className="text-2xl">Descrição:</h3>
-              <p className="text-lg">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptatem iure.
-                Inventore maxime porro repellendus et illum modi molestias cumque recusandae quaerat
-                eius ab deserunt ipsam, mollitia architecto, doloribus accusantium.
-              </p>
+              <p className="text-lg">{data?.description}</p>
             </div>
-            <NavLink className="bg-pink-600 text-white text-lg text-center font-medium p-2 rounded-xl">
+            <NavLink
+              target="_blank"
+              to={pdfLivro}
+              className="bg-pink-600 text-white text-lg text-center font-medium p-2 rounded-xl"
+            >
               Ler o livro
             </NavLink>
           </div>
