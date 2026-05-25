@@ -78,20 +78,22 @@ function App() {
                 ({
                   id,
                   description,
-                  capaImg,
+                  cover_path,
                   genero = "Ficção",
                   publisher,
-                  publisher_year,
+                  publish_year,
                   title,
                   total_reviews,
                 }) => {
+                  const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${cover_path}`;
+
                   return (
                     <li key={id}>
                       <CardLivros
                         nome={title}
                         genero={genero}
                         autor={publisher}
-                        ano={publisher_year}
+                        ano={publish_year}
                         descricao={description}
                         avaliacao={total_reviews}
                         capa={capaImg}
@@ -114,11 +116,11 @@ function App() {
                   cover_path,
                   genero = "Ficção",
                   publisher,
-                  publisher_year,
+                  publish_year,
                   title,
                   total_reviews,
                 }) => {
-                  const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co${cover_path}`;
+                  const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${cover_path}`;
 
                   return (
                     <li key={id}>
@@ -126,7 +128,7 @@ function App() {
                         nome={title}
                         genero={genero}
                         autor={publisher}
-                        ano={publisher_year}
+                        ano={publish_year}
                         descricao={description}
                         avaliacao={total_reviews}
                         capa={capaImg}
