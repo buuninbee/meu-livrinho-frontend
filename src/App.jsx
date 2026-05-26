@@ -73,34 +73,34 @@ function App() {
                     </li>
                   ))
                 : livros.map(
-                ({
-                  id,
-                  description,
-                  cover_path,
-                  genero = "Ficção",
-                  publisher,
-                  publish_year,
-                  title,
-                  total_reviews,
-                }) => {
-                  const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${cover_path}`;
+                    ({
+                      id,
+                      description,
+                      cover_path,
+                      genero = "Ficção",
+                      publisher,
+                      publish_year,
+                      title,
+                      total_reviews,
+                    }) => {
+                      const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${cover_path}`;
 
-                  return (
-                    <li key={id}>
-                      <CardLivros
-                        nome={title}
-                        genero={genero}
-                        autor={publisher}
-                        ano={publish_year}
-                        descricao={description}
-                        avaliacao={total_reviews}
-                        capa={capaImg}
-                        id={id}
-                      />
-                    </li>
-                  );
-                }
-              )}
+                      return (
+                        <li key={id}>
+                          <CardLivros
+                            nome={title}
+                            genero={genero}
+                            autor={publisher}
+                            ano={publish_year}
+                            descricao={description}
+                            avaliacao={total_reviews}
+                            capa={capaImg}
+                            id={id}
+                          />
+                        </li>
+                      );
+                    }
+                  )}
             </ul>
           </div>
           <div className="grid gap-4">
