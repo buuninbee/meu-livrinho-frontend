@@ -6,7 +6,7 @@ import ImagemPadrao from "@/assets/capaPadrao.png";
 
 function CardLivros({ nome, genero, autor, ano, descricao, avaliacao, capa, id }) {
   return (
-    <div className="w-full min-w-80  max-w-sm bg-gray-50 border border-gray-300 rounded-lg">
+    <div className="w-full cursor-pointer min-w-80 max-w-sm bg-gray-50 border border-gray-300 rounded-lg">
       <Collapsible className="rounded-md data-[state=open]:bg-muted">
         <CollapsibleTrigger asChild>
           <div className="grid gap-3 px-3 py-5">
