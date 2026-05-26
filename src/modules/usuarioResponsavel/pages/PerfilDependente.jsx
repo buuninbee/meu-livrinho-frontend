@@ -1,4 +1,6 @@
-import { ChevronLeft, PlusCircle, Trash } from "lucide-react";
+import { ChevronLeft, Trash } from "lucide-react";
+
+import DialogoAdicionarPerfilDependente from "../components/DialogoAdicionarPerfilDependente";
 import DialogoEditarPerfilDependente from "../components/DialogoEditarPerfilDependente";
 import { NavLink } from "react-router";
 
@@ -8,7 +10,7 @@ const PerfilDependente = () => {
       <header className="bg-gray-100">
         <nav className="grid grid-cols-4 py-5 px-4 items-center justify-between">
           <NavLink to="/perfil-responsavel">
-          <ChevronLeft className="" />
+            <ChevronLeft className="" />
           </NavLink>
           <h2 className="text-center col-span-3 text-2xl">Perfil dos Dependentes</h2>
         </nav>
@@ -32,10 +34,7 @@ const PerfilDependente = () => {
           </ul>
 
           <div className="grid justify-center">
-            <button className="flex items-center gap-4 text-2xl">
-              <PlusCircle />
-              Adicionar um Perfil
-            </button>
+            <DialogoAdicionarPerfilDependente />
           </div>
         </section>
       </main>
