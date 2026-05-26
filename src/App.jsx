@@ -4,6 +4,8 @@ import Footer from "@/modules/shared/components/Footer";
 import NavBar from "@/modules/usuarioResponsavel/components/NavBar";
 import { useEffect, useState } from "react";
 import { ListaLivrosModel } from "./modules/shared/models/ListaLivrosModel";
+import SkeletonCardLivro from "./modules/shared/components/SkeletonCardLivro";
+import imagemDeFundoHome from "@/assets/imagem-de-fundo-home.png";
 
 function App() {
   const [livros, setLivros] = useState([]);
@@ -39,7 +41,13 @@ function App() {
             <h2 className="text-3xl font-medium">Literatura Infantil</h2>
 
             <ul className="flex gap-3 overflow-auto sm:flex">
-              {livros.map(
+              {loading
+                ? Array.from({ length: 9 }).map((_, index) => (
+                    <li key={index}>
+                      <SkeletonCardLivro />
+                    </li>
+                  ))
+                : livros.map(
                 ({
                   id,
                   description,
