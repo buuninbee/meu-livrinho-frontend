@@ -49,12 +49,12 @@ const login = () => {
             </NavLink>
           </p>
 
-          <button
-            className="block w-full rounded-lg border border-pink-600 bg-pink-600 px-12 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-pink-600"
-            type="submit"
+          <NavLink
+            to="/perfil-responsavel"
+            className="block w-full rounded-lg text-center border border-pink-600 bg-pink-600 px-12 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-pink-600"
           >
             Entrar
-          </button>
+          </NavLink>
         </form>
       </main>
     </>
