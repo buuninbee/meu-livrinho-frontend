@@ -16,7 +16,9 @@ const PerfilResponsavel = () => {
     <>
       <header className="bg-gray-100">
         <nav className="grid py-5 px-4 grid-cols-3 justify-between">
-          <ChevronLeft />
+          <NavLink to="/">
+            <ChevronLeft className="" />
+          </NavLink>
           <h2 className="text-center text-2xl">Perfil</h2>
         </nav>
       </header>
