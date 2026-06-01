@@ -1,9 +1,10 @@
 import CarrinhoCompras from "@/modules/usuarioResponsavel/components/CarrinhoCompras";
 import logo from "@/assets/logo.svg";
 import { Search } from "lucide-react";
-import { NavLink, useParams } from "react-router";
-import { LivroModel } from "../models/LivroModel";
-import { useEffect, useState } from "react";
+import useLivrosViewModel from "../viewModels/useLivrosViewModel";
+import { NavLink } from "react-router";
+import { LivroPaginaSkeleton } from "../components/SkeletonLivroPagina";
+import { toast, Toaster } from "sonner";
 
 const LivroPagina = () => {
   const { id } = useParams();
@@ -33,14 +34,8 @@ const LivroPagina = () => {
 
   // ✅ Mostrar erro
   if (error) {
-    return <p>Erro ao carregar livro</p>;
+    toast.error("Erro ao salvar atualização");
   }
-
-  // ✅ Mostrar se não encontrou
-  if (!data) {
-    return <p>Livro não encontrado</p>;
-  }
-
   const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${data.cover_path}`;
   const pdfLivro = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${data.pdf_path}`;
 
