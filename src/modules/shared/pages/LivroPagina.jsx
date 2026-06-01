@@ -28,7 +28,7 @@ const LivroPagina = () => {
   }, [id]);
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <LivroPaginaSkeleton />;
   }
 
   // ✅ Mostrar erro
