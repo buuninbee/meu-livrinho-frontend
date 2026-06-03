@@ -2,12 +2,10 @@ import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { NavLink } from "react-router";
 import { ChevronLeft } from "lucide-react";
-import NavBar from "../components/NavBar";
 
 const AdicionarLivro = () => {
   return (
     <>
-      <NavBar />
       <main className="px-6">
         <section className="grid">
           <div className="">

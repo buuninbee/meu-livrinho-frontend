@@ -1,7 +1,5 @@
 import BadgeGenero from "@/modules/shared/components/BadgeGenero";
 import CardLivros from "@/modules/shared/components/CardLivros";
-import Footer from "@/modules/shared/components/Footer";
-import NavBar from "@/modules/usuarioResponsavel/components/NavBar";
 import { useEffect, useState } from "react";
 import { ListaLivrosModel } from "./modules/shared/models/ListaLivrosModel";
 import SkeletonCardLivro from "./modules/shared/components/SkeletonCardLivro";
@@ -24,7 +22,6 @@ function App() {
 
   return (
     <>
-      <NavBar />
       <div className="pb-6">
         <div className="grid">
           <div className="absolute z-10 grid self-end justify-self-center px-3 pb-6 gap-2 sm:px-8 md:pb-12">
@@ -175,7 +172,6 @@ function App() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
