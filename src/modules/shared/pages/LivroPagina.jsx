@@ -7,32 +7,12 @@ import { LivroPaginaSkeleton } from "../components/SkeletonLivroPagina";
 import { toast, Toaster } from "sonner";
 
 const LivroPagina = () => {
-  const { id } = useParams();
-
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const buscarLivro = async () => {
-      try {
-        const { data } = await LivroModel(id);
-        setData(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    buscarLivro();
-  }, [id]);
+  const { data, loading, error } = useLivrosViewModel();
 
   if (loading) {
     return <LivroPaginaSkeleton />;
   }
 
-  // ✅ Mostrar erro
   if (error) {
     toast.error("Erro ao salvar atualização");
   }
@@ -62,6 +42,7 @@ const LivroPagina = () => {
           />
         </div>
       </header>
+      <Toaster richColors position="top-center" />
       <main className="grid px-6">
         <section className="mb-6">
           <div className="flex gap-3 items-center justify-between mb-4">
