@@ -4,13 +4,6 @@ import logo from "@/assets/logo.svg";
 const login = () => {
   return (
     <>
-      <header className="bg-black grid gap-6 px-6 py-4">
-        <nav className="flex justify-between items-center">
-          <NavLink to="/" className="w-40">
-            <img src={logo} alt="" />
-          </NavLink>
-        </nav>
-      </header>
       <main className="px-6 h-screen py-10 bg-blue-400">
         <form className="mx-auto max-w-md space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-6">
           <div className="grid justify-center">
