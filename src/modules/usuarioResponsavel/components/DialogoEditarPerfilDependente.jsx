@@ -28,6 +28,8 @@ const DialogoEditarPerfilDependente = () => {
   });
 
   function onEnviado(data) {
+    console.log(data);
+
     reset();
   }
 
