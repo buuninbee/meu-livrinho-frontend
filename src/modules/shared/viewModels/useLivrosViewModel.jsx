@@ -3,7 +3,7 @@ import { LivroModel } from "../models/LivroModel";
 import { useEffect, useState } from "react";
 
 const useLivrosViewModel = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const useLivrosViewModel = () => {
   useEffect(() => {
     const buscarLivro = async () => {
       try {
-        const { data } = await LivroModel(id);
+        const { data } = await LivroModel(slug);
         setData(data);
       } catch (err) {
         setError(err);
@@ -22,7 +22,7 @@ const useLivrosViewModel = () => {
     };
 
     buscarLivro();
-  }, [id]);
+  }, [slug]);
 
   return { data, loading, error };
 };
