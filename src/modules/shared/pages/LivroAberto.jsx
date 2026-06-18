@@ -7,7 +7,6 @@ import { ChevronLeft } from "lucide-react";
 const LivroAberto = () => {
   const { slug } = useParams();
 
-  console.log(slug);
   const locationState = useLocation();
   const hasReader = locationState.state?.hasReader ?? true;
 
