@@ -1,6 +1,6 @@
 import { supabase } from "@/supabase";
 
-export const LivroModel = async (id) => {
+export const LivroModel = async (slug) => {
   const { LoginError } = await supabase.auth.signInWithPassword({
     email: "jpjpjplima@gmail.com",
     password: "NovaSenha123@",
@@ -10,7 +10,7 @@ export const LivroModel = async (id) => {
     console.error("o erro foi" + LoginError);
   }
 
-  const { data, error } = await supabase.from("v2_books").select("*").eq("id", id).single();
+  const { data, error } = await supabase.from("v2_books").select("*").eq("slug", slug).single();
 
   if (error) {
     console.error("Erro ao buscar livros:", error);
