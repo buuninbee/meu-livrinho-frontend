@@ -11,12 +11,17 @@ import {
 import { NavLink } from "react-router";
 import DialogoEditarPerfilResponsavel from "../components/DialogoEditarPerfilResponsavel";
 
+import IconPerfil from "@/assets/icon-perfil-1.png";
+
 const PerfilResponsavel = () => {
+  const emailUsuario = localStorage.getItem("emailUsuario");
+  const nomeUsuario = emailUsuario.split("@")[0];
+
   return (
     <>
       <header className="bg-gray-100">
         <nav className="grid py-5 px-4 grid-cols-3 justify-between">
-          <NavLink to="/">
+          <NavLink to="/pagina-inicial">
             <ChevronLeft className="" />
           </NavLink>
           <h2 className="text-center text-2xl">Perfil</h2>
@@ -25,15 +30,15 @@ const PerfilResponsavel = () => {
       <main className="grid gap-7 px-6 bg-gray-100">
         <section>
           <div className="grid text-center justify-center gap-2 pb-6">
-            <div className="grid justify-center gap-5 pb-7">
+            <div className="grid justify-center pb-3">
               <img
                 className="rounded-full object-cover w-60 h-60"
-                src="https://images.pexels.com/photos/12471262/pexels-photo-12471262.jpeg"
-                alt=""
+                src={IconPerfil}
+                alt="icone de perfil"
               />
             </div>
-            <h3 className="text-2xl font-medium ">Alex João</h3>
-            <p className="text-gray-800">alex.morgan@example.com</p>
+            <h3 className="text-2xl font-medium ">{nomeUsuario}</h3>
+            <p className="text-gray-800">{emailUsuario}</p>
           </div>
           <DialogoEditarPerfilResponsavel />
         </section>
@@ -50,7 +55,7 @@ const PerfilResponsavel = () => {
               </NavLink>
             </li>
             <li className="border-b border-b-gray-300">
-              <NavLink className="flex items-center justify-between ">
+              <NavLink to="/adicionar-livro" className="flex items-center justify-between ">
                 <div className="flex items-center gap-2 text-lg">
                   <BookOpenText className="w-6" />
                   Meus Livros
