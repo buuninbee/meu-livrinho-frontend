@@ -1,6 +1,6 @@
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import BadgeGenero from "./BadgeGenero";
-import { Star } from "lucide-react";
+import { Sparkles, Star } from "lucide-react";
 import { NavLink } from "react-router";
 import ImagemPadrao from "@/assets/capaPadrao.png";
 
@@ -21,7 +21,17 @@ function CardLivros({ nome, genero, autor, ano, descricao, avaliacao, capa, has_
                 />
               </div>
 
-              <BadgeGenero genero={genero} />
+              <div className="flex gap-4">
+                <BadgeGenero genero={genero} />
+
+                {has_reader && (
+                  <div className="bg-pink-500/30 flex gap-2 items-center py-2 px-3 rounded-2xl w-fit">
+                    <Sparkles className=" text-pink-900 w-4 h-4" />
+
+                    <p className="text-sm text-pink-900">Leitura Interativa</p>
+                  </div>
+                )}
+              </div>
             </div>
             <div>
               <h3 className="text-xl font-black">{nome}</h3>
@@ -41,7 +51,7 @@ function CardLivros({ nome, genero, autor, ano, descricao, avaliacao, capa, has_
           <p className="text-xl mb-3">{descricao}</p>
 
           <NavLink
-            to={`/livro/${id}`}
+            to={`/livro/${slug}`}
             className="bg-pink-600 text-white text-lg text-center font-medium p-2 rounded-xl"
           >
             Ver mais{" "}
