@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import { NavLink } from "react-router";
 import ImagemPadrao from "@/assets/capaPadrao.png";
 
-function CardLivros({ nome, genero, autor, ano, descricao, avaliacao, capa, id }) {
+function CardLivros({ nome, genero, autor, ano, descricao, avaliacao, capa, has_reader, slug }) {
   return (
     <div className="w-full cursor-pointer min-w-80 max-w-sm bg-gray-50 border border-gray-300 rounded-lg">
       <Collapsible className="rounded-md data-[state=open]:bg-muted">

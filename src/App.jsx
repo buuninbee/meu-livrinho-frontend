@@ -79,6 +79,8 @@ function App() {
                       publish_year,
                       title,
                       total_reviews,
+                      has_reader,
+                      slug,
                     }) => {
                       const capaImg = `https://vknwqkblxlyaedbnigwc.supabase.co/storage/v1/object/public/biblioteca/${cover_path}`;
 
@@ -93,6 +95,8 @@ function App() {
                             avaliacao={total_reviews}
                             capa={capaImg}
                             id={id}
+                            has_reader={has_reader}
+                            slug={slug}
                           />
                         </li>
                       );
