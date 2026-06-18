@@ -9,16 +9,25 @@ const Footer = () => {
             Descubra um novo mundo com os livros
           </h2>
 
-          <p class="mx-auto mt-4 max-w-sm text-gray-500 dark:text-gray-400">
+          <p class="mx-auto mt-4 max-w-sm pb-6 text-gray-500 dark:text-gray-400">
             Acesse o app e viva a experiência completa: cadastre livros ou adquira os seus favoritos
           </p>
 
-          <NavLink
-            to="/cadastro"
-            class="mt-8 inline-block rounded-full border border-pink-500 px-12 py-3 text-sm font-medium text-white hover:bg-indigo-600 hover:text-white"
-          >
-            Fazer Cadastro
-          </NavLink>
+          <div className="flex justify-center gap-4">
+            <NavLink
+              to="/cadastro"
+              class="mt-8 inline-block rounded-full border border-pink-500 px-12 py-3 text-sm font-medium text-white hover:bg-indigo-600 hover:text-white"
+            >
+              Fazer Cadastro
+            </NavLink>
+
+            <NavLink
+              to="/sobre-nos"
+              class="mt-8 inline-block rounded-full border border-pink-500 px-12 py-3 text-sm font-medium text-white hover:bg-indigo-600 hover:text-white"
+            >
+              Sobre
+            </NavLink>
+          </div>
         </div>
 
         <div class="mt-16 border-t border-gray-100 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24 dark:border-gray-800">
