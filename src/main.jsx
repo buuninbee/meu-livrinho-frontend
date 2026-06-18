@@ -14,6 +14,7 @@ import AdicionarLivro from "./modules/usuarioResponsavel/pages/AdicionarLivro.js
 import PaginaInicial from "./modules/usuarioResponsavel/pages/PaginaInicial.jsx";
 import LayoutAutenticado from "./modules/usuarioResponsavel/layout/LayoutAutenticado.jsx";
 import LivroAberto from "./modules/shared/pages/LivroAberto.jsx";
+import Sobre from "./modules/shared/pages/Sobre.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById("root")).render(
         <Route element={<SemFooter />}>
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/sobre-nos" element={<Sobre />} />
         </Route>
 
         <Route element={<LayoutAutenticado />}>
