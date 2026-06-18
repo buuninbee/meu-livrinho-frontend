@@ -6,10 +6,10 @@ import { NavLink } from "react-router";
 import useUsuarioDepentendes from "../viewModels/useUsuariosDependentes";
 
 const PerfilDependente = () => {
-  const { data, error } = useUsuarioDepentendes("buunin.bee@gmail.com");
+  const { data, error } = useUsuarioDepentendes(localStorage.getItem("emailUsuario"));
 
   console.log(data);
-
+  console.log(error);
   return (
     <>
       <header className="bg-gray-100">
