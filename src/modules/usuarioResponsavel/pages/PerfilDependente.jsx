@@ -3,8 +3,13 @@ import { ChevronLeft, Trash } from "lucide-react";
 import DialogoAdicionarPerfilDependente from "../components/DialogoAdicionarPerfilDependente";
 import DialogoEditarPerfilDependente from "../components/DialogoEditarPerfilDependente";
 import { NavLink } from "react-router";
+import useUsuarioDepentendes from "../viewModels/useUsuariosDependentes";
 
 const PerfilDependente = () => {
+  const { data, error } = useUsuarioDepentendes("buunin.bee@gmail.com");
+
+  console.log(data);
+
   return (
     <>
       <header className="bg-gray-100">
@@ -20,17 +25,19 @@ const PerfilDependente = () => {
         <section className="grid gap-5 px-4 py-6">
           <h3 className="text-2xl">Perfis relacionados a esse perfil</h3>
           <ul className="px-3">
-            <li className="flex items-center justify-between">
-              <p className="text-2xl">Demóstenes</p>
+            {data?.map((filho) => (
+              <li key={filho.id} className="flex items-center justify-between">
+                <p className="text-2xl text-black">{filho.full_name}</p>
 
-              <div className="flex gap-4">
-                <DialogoEditarPerfilDependente />
+                <div className="flex gap-4">
+                  <DialogoEditarPerfilDependente />
 
-                <button>
-                  <Trash className="text-red-600" />
-                </button>
-              </div>
-            </li>
+                  <button>
+                    <Trash className="text-red-600" />
+                  </button>
+                </div>
+              </li>
+            ))}
           </ul>
 
           <div className="grid justify-center">
